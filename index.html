@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="hi"><head><style>
+@font-face {
+  font-family: "Optimistic";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/OptimisticAI_VF_Optimized.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Optimistic Mono";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/fonts/OptimisticMono_W_TextRegular.woff2") format("woff2");
+}
+:where(html) {
+  font-family: "Optimistic", system-ui, sans-serif;
+}
+:where(code, pre, kbd, samp) {
+  font-family: "Optimistic Mono", ui-monospace, monospace;
+}
+</style><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>AI Studio - Final Profitable Plans</title><script src="https://cdn.tailwindcss.com"></script><script src="https://checkout.razorpay.com/v1/checkout.js"></script></head><body class="bg-black text-white">
+<div class="max-w-xl mx-auto p-4">
+<h1 class="text-3xl font-bold text-center mt-4">AI Magic Studio ✨</h1>
+<p class="text-center text-white/60 text-xs mt-1">Final Plans - Profitable</p>
+
+<div class="grid grid-cols-1 gap-3 mt-6">
+<!-- 7 DAYS - $3 - 5 Videos -->
+<div class="bg-zinc-900 border border-white/10 rounded-2xl p-4">
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold">⚡ 7 Days Plan</h3>
+<p class="text-2xl font-bold mt-1">$3 <span class="text-xs font-normal text-white/50">/ 7 din</span></p>
+</div>
+<div class="text-right">
+<p class="text-xs bg-white/10 px-3 py-1 rounded-full font-bold">5 Videos</p>
+<p class="text-[10px] text-green-400 mt-1">$0.60 / video</p>
+</div>
+</div>
+<p class="text-xs text-white/60 mt-2">• 5 HD Videos<br>• 7 din tak valid<br>• All AI styles</p>
+<button onclick="payNow(3, 'weekly', 5, 7)" class="w-full mt-3 bg-zinc-800 hover:bg-zinc-700 py-3 rounded-full font-bold text-sm">Buy 7 Days - $3</button>
+</div>
+
+<!-- 1 MONTH - $12 - 25 Videos - POPULAR -->
+<div class="bg-gradient-to-br from-zinc-900 to-zinc-800 border border-purple-500 rounded-2xl p-4 relative ring-1 ring-purple-500/30">
+<span class="absolute top-3 right-3 bg-white text-black text-[10px] px-3 py-1 rounded-full font-bold">MOST POPULAR</span>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold">📅 1 Month Plan</h3>
+<p class="text-3xl font-bold mt-1">$12 <span class="text-xs font-normal text-white/50">/ month</span></p>
+</div>
+<div class="text-right">
+<p class="text-xs bg-purple-600 px-3 py-1 rounded-full font-bold">25 Videos</p>
+<p class="text-[10px] text-green-400 mt-1">$0.48 / video</p>
+</div>
+</div>
+<p class="text-xs text-white/60 mt-2">• 25 HD Videos<br>• 30 din tak valid<br>• Full access + HD Download<br>• Save 20%</p>
+<button onclick="payNow(12, 'monthly', 25, 30)" class="w-full mt-3 bg-white text-black py-3 rounded-full font-bold">Buy Monthly - $12</button>
+</div>
+
+<!-- 1 YEAR - $99 - 400 Videos - BEST VALUE -->
+<div class="bg-gradient-to-br from-purple-900/40 to-pink-900/40 border border-purple-500 rounded-2xl p-4 relative">
+<span class="absolute top-3 right-3 bg-gradient-to-r from-purple-600 to-pink-600 text-[10px] px-3 py-1 rounded-full font-bold">BEST VALUE - SAVE 60%</span>
+<div class="flex justify-between items-start">
+<div>
+<h3 class="font-bold">🗓️ 1 Year Plan</h3>
+<p class="text-3xl font-bold mt-1">$99 <span class="text-xs font-normal text-white/50">/ year</span></p>
+</div>
+<div class="text-right">
+<p class="text-xs bg-gradient-to-r from-purple-600 to-pink-600 px-3 py-1 rounded-full font-bold">400 Videos</p>
+<p class="text-[10px] text-green-400 mt-1">$0.24 / video</p>
+</div>
+</div>
+<p class="text-xs text-white/60 mt-2">• 400 HD Videos<br>• 365 din tak valid<br>• ~33 videos/month<br>• Poora saal tension khatam</p>
+<button onclick="payNow(99, 'yearly', 400, 365)" class="w-full mt-3 bg-gradient-to-r from-purple-600 to-pink-600 py-3 rounded-full font-bold">Buy Yearly - $99</button>
+<p class="text-[10px] text-center text-green-400 mt-2">Monthly lete toh $144 lagta, Yearly me sirf $99!</p>
+</div>
+</div>
+
+<div id="subStatus" class="hidden mt-5 bg-green-900/20 border border-green-500/50 rounded-xl p-3 text-center">
+<p class="text-xs text-green-400 font-bold">✅ Active Subscription</p>
+<p id="subDetails" class="text-xs mt-1"></p>
+<p id="subExpiry" class="text-[11px] text-white/60 mt-1"></p>
+<div class="w-full bg-black/50 rounded-full h-2 mt-2"><div id="progressBar" class="bg-green-500 h-2 rounded-full" style="width:0%"></div></div>
+</div>
+
+<div class="bg-zinc-900 rounded-2xl p-4 mt-6 border border-white/10">
+<input type="file" id="fileInput" accept="image/*" class="w-full text-sm file:mr-3 file:bg-white file:text-black file:px-4 file:py-2 file:rounded-full file:border-0" onchange="previewFile()">
+<img id="preview" class="hidden w-full mt-4 rounded-xl max-h-[400px] object-contain border border-white/10">
+<textarea id="promptInput" rows="3" placeholder="Prompt: Ghibli style, dance video, cinematic..." class="w-full mt-4 bg-black border border-white/20 rounded-xl p-3 text-sm"></textarea>
+<button id="genBtn" disabled class="w-full mt-5 bg-zinc-700 py-4 rounded-full font-bold opacity-50">🔒 Pehle Plan Kharido</button>
+<div id="resultArea" class="hidden mt-6 bg-black p-4 rounded-xl border border-white/10">
+<p id="loader" class="text-center text-sm">Video ban raha hai... 40 sec...</p>
+<video id="resultVideo" controls class="hidden w-full rounded-xl mt-3"></video>
+<a id="downloadBtn" class="hidden mt-3 block text-center bg-white text-black py-3 rounded-full font-bold text-sm">⬇️ Download</a>
+<p id="error" class="hidden text-red-400 text-xs mt-2"></p>
+</div>
+</div>
+
+<div class="mt-6 bg-zinc-900 rounded-xl p-3 border border-white/10">
+<p class="text-xs font-bold">⚙️ ADMIN SETUP - Final:</p>
+<input id="rzpKey" type="text" placeholder="Razorpay Key ID - rzp_live_XXXXX" class="w-full mt-2 p-2 rounded bg-black border text-xs">
+<input id="falKey" type="text" placeholder="Fal.ai Secret Key" class="w-full mt-1 p-2 rounded bg-black border text-xs">
+<button onclick="saveAdmin()" class="mt-2 w-full bg-white text-black py-2 rounded font-bold text-xs">Save Config</button>
+<p id="saveStatus" class="text-[10px] text-green-400 mt-1 hidden">Saved! ✅ Final Plans Active</p>
+</div>
+</div>
+
+<script>
+let base64Image = ""; let RAZORPAY_KEY = localStorage.getItem('rzp_key') || ""; let FAL_KEY = localStorage.getItem('fal_secret') || "";
+if(RAZORPAY_KEY) document.getElementById('rzpKey').value = RAZORPAY_KEY;
+if(FAL_KEY) document.getElementById('falKey').value = FAL_KEY;
+function saveAdmin(){ const rk=document.getElementById('rzpKey').value.trim(); const fk=document.getElementById('falKey').value.trim(); if(rk) localStorage.setItem('rzp_key', rk); if(fk) localStorage.setItem('fal_secret', fk); RAZORPAY_KEY=rk; FAL_KEY=fk; document.getElementById('saveStatus').classList.remove('hidden'); alert("Final Plans Saved! - 7D $3/5V, 1M $12/25V, 1Y $99/400V"); checkSubscription(); }
+function previewFile(){ const file=document.getElementById('fileInput').files[0]; if(!file) return; const r=new FileReader(); r.onload=e=>{base64Image=e.target.result; document.getElementById('preview').src=base64Image; document.getElementById('preview').classList.remove('hidden');}; r.readAsDataURL(file); }
+function checkSubscription(){
+ const sub = JSON.parse(localStorage.getItem('user_subscription')||'null'); if(!sub) return false;
+ const now = new Date(); const expiry = new Date(sub.expiry); if(now > expiry){ localStorage.removeItem('user_subscription'); return false; }
+ document.getElementById('subStatus').classList.remove('hidden');
+ document.getElementById('subDetails').innerText = `${sub.plan.toUpperCase()} Plan | ${sub.used}/${sub.limit} videos used`;
+ document.getElementById('subExpiry').innerText = `Expiry: ${expiry.toLocaleDateString()} | Baaki: ${Math.ceil((expiry-now)/(1000*60*60*24))} din`;
+ document.getElementById('progressBar').style.width = `${(sub.used/sub.limit)*100}%`;
+ const btn = document.getElementById('genBtn');
+ if(sub.used < sub.limit){ btn.disabled=false; btn.classList.remove('bg-zinc-700','opacity-50'); btn.classList.add('bg-gradient-to-r','from-purple-600','to-pink-600'); btn.innerText=`✨ Generate Video (${sub.limit - sub.used} bache)`; btn.onclick=generateAI; return true; }
+ else { btn.disabled=true; btn.innerText="❌ Limit Khatam - Renew Karo"; return false; }
+}
+checkSubscription();
+function payNow(amount, planType, limit, days){
+ const rzpKey = document.getElementById('rzpKey').value.trim() || localStorage.getItem('rzp_key');
+ if(!rzpKey || !rzpKey.startsWith('rzp_')){
+   alert(`TEST MODE: ${planType} - $${amount} - ${limit} videos / ${days} days - Free active kar raha hu`);
+   const expiry = new Date(); expiry.setDate(expiry.getDate()+days);
+   localStorage.setItem('user_subscription', JSON.stringify({plan: planType, amount: amount, limit: limit, used: 0, expiry: expiry.toISOString(), payment_id: 'test_'+Date.now()}));
+   checkSubscription(); return;
+ }
+ const options = {
+  key: rzpKey, amount: amount*100, currency: "USD", name: "AI Magic Studio",
+  description: `${planType.toUpperCase()} - $${amount} - ${limit} videos / ${days} days`,
+  handler: function (response){
+    const expiry = new Date(); expiry.setDate(expiry.getDate()+days);
+    localStorage.setItem('user_subscription', JSON.stringify({plan: planType, amount: amount, limit: limit, used: 0, expiry: expiry.toISOString(), payment_id: response.razorpay_payment_id}));
+    alert(`Payment Success! ${planType} - $${amount} - ${limit} videos - Payment ID: ${response.razorpay_payment_id}`); checkSubscription();
+  },
+  theme: { color: "#9333ea" }
+ };
+ const rzp = new Razorpay(options); rzp.open();
+}
+async function generateAI(){
+ const sub = JSON.parse(localStorage.getItem('user_subscription')||'null');
+ if(!sub){ alert("Pehle plan kharido!"); return; }
+ if(new Date(sub.expiry) < new Date()){ alert("Expire ho gaya! Renew karo"); localStorage.removeItem('user_subscription'); checkSubscription(); return; }
+ if(sub.used >= sub.limit){ alert("Limit khatam! Naya plan lo"); return; }
+ const prompt = document.getElementById('promptInput').value.trim();
+ const falKey = document.getElementById('falKey').value.trim() || localStorage.getItem('fal_secret');
+ if(!falKey){ alert("Admin: Fal key dalo"); return; } if(!base64Image){ alert("Photo upload karo"); return; } if(!prompt){ alert("Prompt likho"); return; }
+ document.getElementById('resultArea').classList.remove('hidden'); document.getElementById('loader').classList.remove('hidden');
+ document.getElementById('loader').innerText=`${sub.plan} active ✅ Video ban raha hai...`; document.getElementById('genBtn').innerText="Bana raha hu...";
+ try{
+   const genRes = await fetch('https://queue.fal.run/fal-ai/kling-video/v2.1/standard/image-to-video', { method: 'POST', headers: { 'Authorization': 'Key ' + falKey, 'Content-Type': 'application/json' }, body: JSON.stringify({ prompt: prompt, image_url: base64Image, duration: "5", aspect_ratio: "16:9" }) });
+   if(!genRes.ok){ const t = await genRes.text(); throw new Error(t.slice(0,300)); }
+   const genData = await genRes.json(); let statusUrl = genData.response_url || genData.status_url; if(!statusUrl && genData.request_id) statusUrl = `https://queue.fal.run/fal-ai/kling-video/v2.1/standard/image-to-video/requests/${genData.request_id}/status`;
+   let videoUrl = null; for(let i=0;i<50;i++){ await new Promise(r=>setTimeout(r,3000)); const sRes = await fetch(statusUrl, { headers: { 'Authorization': 'Key ' + falKey } }); const sData = await sRes.json(); if(sData.status === 'COMPLETED'){ videoUrl = sData.response?.video?.url || sData.video?.url; if(videoUrl) break; } document.getElementById('loader').innerText=`Ban raha hai... ${ (i+1)*3 } sec ⏳`; }
+   if(!videoUrl) throw new Error("Fal dashboard check karo");
+   document.getElementById('loader').classList.add('hidden'); const v = document.getElementById('resultVideo'); v.src = videoUrl; v.classList.remove('hidden'); document.getElementById('downloadBtn').href = videoUrl; document.getElementById('downloadBtn').classList.remove('hidden');
+   sub.used++; localStorage.setItem('user_subscription', JSON.stringify(sub)); checkSubscription();
+ }catch(e){ document.getElementById('loader').classList.add('hidden'); document.getElementById('error').classList.remove('hidden'); document.getElementById('error').innerText = e.message; document.getElementById('genBtn').innerText="✨ Generate Video"; }
+}
+</script>
+<script>(function(){var loc=location.href.replace(/#.*$/,"");var ATTR_NAMES=["data-product-id","data-productid","data-product_id","product-id","productid","product_id","data-source-entity-id","source-entity-id","source_entity_id","data-product","data-metadata","data-meta"];var DATASET_KEYS=["productId","productid","product_id","sourceEntityId","sourceentityid","source_entity_id","product","metadata","meta"];function readProductId(value){if(typeof value!=="string"||value.length===0)return null;if(/^[0-9]{6,}$/.test(value))return value;var match=value.match(/(?:product(?:_|-)?id|source(?:_|-)?entity(?:_|-)?id)["'=:\s]+([0-9]{6,})/i);return match?match[1]:null}function extractProductId(start){for(var node=start;node&&node!==document.body;node=node.parentElement){for(var i=0;i<ATTR_NAMES.length;i++){var attrValue=node.getAttribute&&node.getAttribute(ATTR_NAMES[i]);var attrProductId=readProductId(attrValue);if(attrProductId)return attrProductId}var dataset=node.dataset||null;if(dataset){for(var j=0;j<DATASET_KEYS.length;j++){var dataValue=dataset[DATASET_KEYS[j]];var dataProductId=readProductId(dataValue);if(dataProductId)return dataProductId}}}return null}function isInlineMediaSlotElement(node){return !!(node&&node.getAttribute&&node.getAttribute("data-clippy-inline-media-slot")!==null)}function findInlineMediaSlot(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(isInlineMediaSlotElement(node))return node}return null}function readInlineMediaUrl(node){if(!node)return null;return node.getAttribute&&((node.getAttribute("data-clippy-inline-media-url")||node.getAttribute("data-url")||node.getAttribute("data_url")))||node.href||null}function stripHash(url){return String(url).replace(/#.*$/,"")}function urlsMatch(a,b){if(!a||!b)return false;try{return stripHash(new URL(a,loc).href)===stripHash(new URL(b,loc).href)}catch(_){return stripHash(a)===stripHash(b)}}function isFirstPartyReelUrl(value){try{var url=new URL(value,loc);if(url.protocol!=="https:")return false;var host=url.hostname.toLowerCase();var supported=host==="instagram.com"||host.endsWith(".instagram.com")||host==="facebook.com"||host.endsWith(".facebook.com");return supported&&/\/reels?\//i.test(url.pathname)}catch(_){return false}}function isInlineMediaUrlClick(node,href){var slot=findInlineMediaSlot(node);if(!slot)return false;var slotUrl=readInlineMediaUrl(slot);if(slotUrl)return urlsMatch(href,slotUrl);return isFirstPartyReelUrl(href)}function findDataHref(start){for(var node=start;node&&node!==document.body;node=node.parentElement){if(node.getAttribute){var href=node.getAttribute("data-href")||node.getAttribute("data-url");if(href)return{href:href,node:node}}}return null}var nativeOpen=window.open;window.open=function(url){if(parent!==window&&typeof url==="string"&&/^https?:\/\//.test(url)){parent.postMessage({type:"ecto:usercontent-link-click",href:url},"*");return null}return nativeOpen?nativeOpen.apply(window,arguments):null};document.addEventListener("click",function(e){var target=e.target instanceof Element?e.target:null;if(!target)return;if(parent===window)return;var a=target.closest?target.closest("a[href]"):null;if(a&&a.href&&/^https?:\/\//.test(a.href)&&a.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(a,a.href))return;var productId=extractProductId(target)||extractProductId(a);if(productId){e.preventDefault();parent.postMessage({type:"ecto-artifact-link-click",productId:productId},"*");return}e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:a.href},"*");return}var dataHref=findDataHref(target);if(dataHref&&/^https?:\/\//.test(dataHref.href)&&dataHref.href.replace(/#.*$/,"")!==loc){if(isInlineMediaUrlClick(dataHref.node,dataHref.href))return;e.preventDefault();parent.postMessage({type:"ecto:usercontent-link-click",href:dataHref.href},"*")}},true)})();</script><script>(function(){var FOCUS_TYPE="ecto:artifact-focus-request";var CLOSE_TYPE="ecto:artifact-close-request";function focusArtifactDocument(){var body=document.body;if(!body)return;try{window.focus();}catch(e){}if(!body.hasAttribute("tabindex"))body.setAttribute("tabindex","-1");try{body.focus({preventScroll:true});}catch(e){try{body.focus();}catch(e2){}}}window.addEventListener("message",function(event){if(event.source!==window.parent)return;var data=event.data;if(!data||typeof data!=="object"||data.type!==FOCUS_TYPE)return;if(document.readyState==="loading"){document.addEventListener("DOMContentLoaded",focusArtifactDocument,{once:true});return;}focusArtifactDocument();});window.addEventListener("keydown",function(event){if(event.key!=="Escape")return;window.setTimeout(function(){if(event.defaultPrevented)return;window.parent.postMessage({type:CLOSE_TYPE},"*");},0);});})();</script></body></html>
